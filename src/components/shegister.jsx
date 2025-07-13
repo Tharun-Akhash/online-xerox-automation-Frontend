@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Store, Mail, Lock, Eye, EyeOff, AlertCircle, Phone, CheckCircle, User, Loader2 } from 'lucide-react';
-
+import config from '../../config/db';
 export default function ShopkeeperRegister() {
   const [formData, setFormData] = useState({
     email: '',
@@ -69,7 +69,7 @@ const navigate = useNavigate();
   setIsLoading(true);
   
   try {
-    const response = await fetch('http://localhost:5000/api/shopkeeper/register', {
+    const response = await fetch(`${config.API_URL}/api/shopkeeper/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

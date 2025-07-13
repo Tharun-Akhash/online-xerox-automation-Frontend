@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GraduationCap, Mail, Lock, Eye, EyeOff, ArrowLeft, AlertCircle } from 'lucide-react';
-
+import config from '../../config/db';
 export default function StudentLogin() {
   const [formData, setFormData] = useState({
     email: '',
@@ -44,7 +44,7 @@ export default function StudentLogin() {
     
     try {
       // API call to login endpoint
-      const response = await fetch('http://localhost:5000/api/auth/login', {
+      const response = await fetch(`${config.API_URL}/api/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

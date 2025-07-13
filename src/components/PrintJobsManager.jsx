@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import {
   FileText, Calendar, Eye, Download, X, Search, Phone, Play, XCircle, User
 } from 'lucide-react';
-
+import config from '../../config/db';
 const PrintJobsManager = () => {
   const [printJobs, setPrintJobs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,7 +11,7 @@ const PrintJobsManager = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedJob, setSelectedJob] = useState(null);
   const [showJobDetails, setShowJobDetails] = useState(false);
-  const API_BASE_URL = 'http://localhost:5000/api';
+  const API_BASE_URL = `${config.API_URL}/api`;
 
   const getAuthToken = () => {
     return localStorage.getItem('token') || '';

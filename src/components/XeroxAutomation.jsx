@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import config from '../../config/db';
 const XeroxAutomation = () => {
   const [totalPages, setTotalPages] = useState(0);
   const [numCopies, setNumCopies] = useState(1);
@@ -20,7 +20,7 @@ const XeroxAutomation = () => {
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [orderDetails, setOrderDetails] = useState(null);
   const [apiError, setApiError] = useState(null);
-  const API_BASE_URL="http://localhost:5000"
+  const API_BASE_URL=`${config.API_URL}`
 
   // API base URL - adjust this to match your backend
  // ✅ But usually tokens are stored in cookies or localStorage, not envs

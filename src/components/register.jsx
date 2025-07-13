@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GraduationCap, Mail, Lock, Eye, EyeOff, ArrowLeft, AlertCircle, User, CheckCircle, Phone } from 'lucide-react';
-
+import config from '../../config/db';
 export default function StudentRegister() {
   const [formData, setFormData] = useState({
     email: '',
@@ -75,7 +75,7 @@ export default function StudentRegister() {
     
     try {
       // API call to register endpoint
-      const response = await fetch('http://localhost:5000/api/auth/register', {
+      const response = await fetch(`${config.API_URL}/api/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
